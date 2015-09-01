@@ -1,5 +1,5 @@
 body {
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 20px;
 }
 
@@ -17,7 +17,6 @@ textarea {
     max-width: 280px;
 }
 
-#email-settings {
-  padding: 2rem 0;
-  margin-top: 2rem;
+.k-datepicker {
+  display: block !important;
 }
