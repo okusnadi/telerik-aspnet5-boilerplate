@@ -5,7 +5,8 @@
     "bootstrap": "3.0.0",
     "jquery": "2.1.4",
     "jquery-validation": "1.11.1",
-    "jquery-validation-unobtrusive": "3.2.2"
+    "jquery-validation-unobtrusive": "3.2.2",
+    "kendo-ui": "kendo-ui-core#~2015.2.813"
   },
   "overrides": {
     "bootstrap": {
@@ -23,6 +24,17 @@
     },
     "jquery-validation-unobtrusive": {
       "main": "jquery.validate.unobtrusive{.js,.min.js}"
+    },
+    "kendo-ui": {
+      "main": [
+        "js/kendo.ui.core{.min.js,.min.js.map}",
+        "styles/kendo.common.min.css",
+        "styles/kendo.blueopal.min.css",
+        "styles/BlueOpal/*.**",
+        "styles/fonts/*.**",
+        "styles/images/*.**",
+        "styles/textures/*.**"
+      ]
     }
   }
 }
