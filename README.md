@@ -35,9 +35,43 @@ These are differences and enhancement compared to original article:
 
 * open source version of Telerik's library is used: `Kendo UI Core`
 * `Bower` is used to install locally all dependencies
+```json
+"kendo-ui": "kendo-ui-core#~2015.2.813"
+```
 * CDN are used to link to used libraries with fallbacks to local content
+```
+<environment names="Staging,Production">
+      <link rel="stylesheet" href="//kendo.cdn.telerik.com/2014.1.416/styles/kendo.common.min.css" />
+      <link rel="stylesheet" href="//kendo.cdn.telerik.com/2014.1.416/styles/kendo.blueopal.min.css" />
+  </environment>
+```
 * `Gulp` manages local dependencies and there is a task that optimizes which scripts are copied to `wwwroot` directory from `bower_components`
 * the Razor sections are used for script and styles inclusion
+```cshtml
+@section styles {
+  <environment names="Development">
+      <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.common.min.css" />
+      <link rel="stylesheet" href="~/lib/kendo-ui/styles/kendo.blueopal.min.css" />
+  </environment>
+  <environment names="Staging,Production">
+      <link rel="stylesheet" href="//kendo.cdn.telerik.com/2014.1.416/styles/kendo.common.min.css" />
+      <link rel="stylesheet" href="//kendo.cdn.telerik.com/2014.1.416/styles/kendo.blueopal.min.css" />
+  </environment>
+}
+@section scripts {
+  <environment names="Development">
+      <script src="~/lib/kendo-ui/js/kendo.ui.core.min.js"></script>
+  </environment>
+  <environment names="Staging,Production">
+      <script src="//kendo.cdn.telerik.com/2014.1.416/js/kendo.ui.core.min.js"
+              asp-fallback-src="~/lib/kendo-ui/js/kendo.ui.core.min.js"
+              asp-fallback-test="window.kendo">
+      </script>
+  </environment>
+  @Html.Kendo().DeferredScripts()
+}
+```
+
 * `Kendo UI Core` client side code is executed in deferred way
 
 
